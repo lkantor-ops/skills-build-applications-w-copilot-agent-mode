@@ -27,9 +27,12 @@ SECRET_KEY = 'django-insecure-z&hu#x7ir+!z3#=(0$si6-6y4p9kw442gb^ka^15k0vo13cmke
 DEBUG = True
 
 
+
+# Support localhost and Codespace URL for Django backend
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
-if os.environ.get('CODESPACE_NAME'):
-    ALLOWED_HOSTS.append(f"{os.environ.get('CODESPACE_NAME')}-8000.app.github.dev")
+codespace_name = os.environ.get('CODESPACE_NAME')
+if codespace_name:
+    ALLOWED_HOSTS.append(f"{codespace_name}-8000.app.github.dev")
 
 
 # Application definition
